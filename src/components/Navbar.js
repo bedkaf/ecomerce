@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import logo from '../assets/removebg.png'
+import { ShoppingCart } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,13 +14,13 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "7rem",
   },
   appBar: {
-    backgroundColor: "blue",
+    backgroundColor: "#ff7043",
     boxShadow: "nome",
   },
   grow: {
     flexGrow: 1,
   },
-  Button: {
+  button: {
     marginLeft: theme.spacing(2),
   },
   image: {
@@ -33,15 +34,26 @@ export default function Navbar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="fixed">
+      <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
+
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <img src={logo} className={classes.image} />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            News
+
+          <Typography variant="h6" color="textPrimary" component="p">
+            <b>Esperenado usuario</b>
           </Typography>
-          <Button color="inherit">Login</Button>
+
+          <div className={classes.button}>
+            <Button variant= "outlined" color="primary" >
+            <strong>Sing in</strong>
+            </Button>
+            <IconButton aria-label="Mira los articulos agregados a tu carrito" color="inherit">
+              <ShoppingCart fontSize="large" color="primary"/>
+            </IconButton>
+          </div>
+
         </Toolbar>
       </AppBar>
     </div>
