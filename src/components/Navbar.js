@@ -42,7 +42,7 @@ export default function Navbar() {
             <img src={logo} className={classes.image} />
           </IconButton>
 
-           <div  className={classes.grow} /> {/*Separador entre el logo y el carrito */}
+           <div  className={classes.grow} /> {/*Separador entre el logo y las otras clases */}
 
           <Typography variant="h6" color="textPrimary" component="p">
             <b>Esperenado usuario</b>
