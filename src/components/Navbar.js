@@ -54,7 +54,7 @@ export default function Navbar() {
             </Button>
             <IconButton aria-label="Mira los articulos agregados a tu carrito" color="inherit">
               {/* Revisar esta parte del codigo, genera una precaucion */}
-              <Badge badgeContent={4} overlap="rectangular" color="secondary">
+              <Badge badgeContent={100} overlap="rectangular" color="secondary">
               <ShoppingCart fontSize="large" color="primary"/>
               </Badge>
                 

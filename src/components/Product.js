@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
 
   action: {
     marginTop: "1rem",
+    fontSize: "1rem",
   },
 
   media: {
@@ -53,20 +54,17 @@ export default function Product({product : {id, name, productType, price, rantin
 
   return (
     <Card className={classes.root}>
-      <CardHeader
+      <CardHeader 
         // avatar={
         //   <Avatar aria-label="recipe" className={classes.avatar}>
         //     HBM
         //   </Avatar>
         // }
-        action={
-          <Typography className={classes.action} variant='h5' color='textSecondary'>
-            {accounting.formatMoney(price,"COP ")}
-          </Typography>
-        }
-        title={name}
+        
+        title={name.slice(0,19)}
         subheader="in Stock"
       />
+      
       <CardMedia
         className={classes.media}
         image={image}
@@ -74,9 +72,15 @@ export default function Product({product : {id, name, productType, price, rantin
       />
 
       <CardContent>
+        
+        <Typography  variant='h6' color='textSecondary'>
+          {accounting.formatMoney(price,"COP ")}
+        </Typography>
+
         <Typography variant="body2" color="textSecondary" component="p">
           {productType}
         </Typography>
+                
       </CardContent>
 
       <CardActions disableSpacing>
@@ -84,8 +88,6 @@ export default function Product({product : {id, name, productType, price, rantin
         <IconButton aria-label="add to Cart" >
           <AddShoppingCart fontSize='large' />
         </IconButton>
-
-        {/* Revisar este fragmento de codigo, esta generando una alerta de precaucion */}
 
         {Array(ranting).fill().map((_, i) => (
           <p key={i} >&#11088;</p>
