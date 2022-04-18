@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
 import CheckoutCard from "./CheckoutCard";
-import Product from "./Product";
 import dataProducts from "../produc-data";
 
 const useStyles = makeStyles((theme) => ({
@@ -11,6 +10,12 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
     padding: "2rem",
   },
+
+  content: {
+    display: "block",
+    margin: "0px auto",
+  },
+
 }));
 
 const CheckoutPage = () => {
@@ -21,8 +26,8 @@ const CheckoutPage = () => {
     return(
       <>
         {dataProducts.map((item) => (
-          <Grid item xs={12} sm={6} lg={4}  >
-            <Product key={item.id} product={item} />
+          <Grid item xs={12} sm={6} lg={4} key={item.id}  >
+            <CheckoutCard  product={item} />
           </Grid>
         ))}
       </>
@@ -39,7 +44,7 @@ const CheckoutPage = () => {
           </Typography>
         </Grid>
 
-        <Grid item xs={12} sm={8} md={9} container spacing={2} >
+        <Grid item xs={12} sm={8} md={9} container spacing={3} >
           <FomrRow />
         </Grid>
 
