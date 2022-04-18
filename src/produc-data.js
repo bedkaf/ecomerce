@@ -42,7 +42,7 @@ const dataProducts = [
     price: 4690000,
     ranting: 2,
     image:
-      "https://http2.mlstatic.com/D_NQ_NP_2X_723530-MCO47533881805_092021-F.webp",
+      "https://http2.mlstatic.com/D_NQ_NP_2X_838542-MCO47547457859_092021-F.webp",
     description:
       `Procesador Core i5 10500H de seis nucleos hasta 4.5Ghz
       Memoria ram 8gb Ddr4 a 3200mhz alta frecuencia ampliable a 64gb.

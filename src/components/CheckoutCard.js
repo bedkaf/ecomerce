@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   cardAction: {
-    display: "lex",
+    display: "flex",
     justifyContent: "space-between",
     textAlign: "center",
   },
@@ -51,12 +51,6 @@ export default function CheckoutCard({product : {id, name, productType, price, r
   return (
     <Card className={classes.root}>
       <CardHeader 
-        // avatar={
-        //   <Avatar aria-label="recipe" className={classes.avatar}>
-        //     HBM
-        //   </Avatar>
-        // }
-        
         title={name.slice(0,19)}
         subheader="in Stock"
       />
