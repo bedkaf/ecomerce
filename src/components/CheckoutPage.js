@@ -3,8 +3,8 @@ import { makeStyles } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
 import CheckoutCard from "./CheckoutCard";
-import dataProducts from "../produc-data";
 import Total from "./Total";
+import { useStateValue } from '../StateProvider';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,13 +21,14 @@ const useStyles = makeStyles((theme) => ({
 
 const CheckoutPage = () => {
 
+  const [{basket}, dispatch] = useStateValue();
   const classes = useStyles();
 
   function FomrRow() {
     return(
       <>
-        {dataProducts.map((item) => (
-          <Grid item xs={12} sm={6} lg={4} key={item.id}  >
+        {basket?.map((item) => (
+          <Grid item xs={12} sm={6} lg={4} key={item.id} >
             <CheckoutCard  product={item} />
           </Grid>
         ))}
