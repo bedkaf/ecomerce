@@ -82,8 +82,8 @@ export default function CheckoutCard({product : {id, name, productType, price, r
             <p key={i} >&#11088;</p>
           ))}
         </div>
-        <IconButton >
-          <DeleteIcon fontSize='large' onClick={removeItem} />  
+        <IconButton onClick={removeItem} >
+          <DeleteIcon fontSize='large' />  
         </IconButton>
       </CardActions>
      

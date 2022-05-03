@@ -7,8 +7,11 @@ export const actionType = {
   REMOVE_ITEM: "REMOVE_ITEM",
 }
 
-export const getBasketTotal = (basket,) => {
-  basket?.reduce(((accumulator, item) => item.price + accumulator), 0);
+ export function getBasketTotal(basket){
+   
+  console.log(`Precio reducer: ${basket?.reduce((accumulator, item) => item.price+accumulator, 0)}`);
+  return(basket?.reduce((accumulator, item) => item.price+accumulator, 0));
+  
 }
 
 const reducer = (state, action) => {
