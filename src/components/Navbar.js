@@ -8,6 +8,7 @@ import logo from '../assets/removebg.png'
 import { ShoppingCart } from '@material-ui/icons';
 import { Badge } from '@material-ui/core';
 import { Button, TextField } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,11 +39,13 @@ export default function Navbar() {
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
 
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <img src={logo} className={classes.image} />
-          </IconButton>
+          <Link to="/">
+            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+              <img src={logo} className={classes.image} />
+            </IconButton>
+          </Link>
 
-           <div  className={classes.grow} /> {/*Separador entre el logo y las otras clases */}
+          <div  className={classes.grow} /> {/*Separador entre el logo y las otras clases */}
 
           <Typography variant="h6" color="textPrimary" component="p">
             <b>Esperenado usuario</b>
@@ -52,13 +55,15 @@ export default function Navbar() {
             <Button variant= "outlined" color="primary" >
             <strong>Sing in</strong>
             </Button>
-            <IconButton aria-label="Mira los articulos agregados a tu carrito" color="inherit">
-              {/* Revisar esta parte del codigo, genera una precaucion */}
-              <Badge badgeContent={100} overlap="rectangular" color="secondary">
-              <ShoppingCart fontSize="large" color="primary"/>
-              </Badge>
-                
-            </IconButton>
+
+            <Link to="/checkout-page">
+              <IconButton aria-label="Mira los articulos agregados a tu carrito" color="inherit">
+                {/* Revisar esta parte del codigo, genera una precaucion */}
+                <Badge badgeContent={100} overlap="rectangular" color="secondary">
+                  <ShoppingCart fontSize="large" color="primary"/>
+                </Badge>
+              </IconButton>
+            </Link>
           </div>
 
         </Toolbar>
