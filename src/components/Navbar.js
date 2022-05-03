@@ -3,10 +3,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import logo from '../assets/removebg.png'
 import { ShoppingCart } from '@material-ui/icons';
+import { Badge } from '@material-ui/core';
+import { Button, TextField } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,6 +42,8 @@ export default function Navbar() {
             <img src={logo} className={classes.image} />
           </IconButton>
 
+           <div  className={classes.grow} /> {/*Separador entre el logo y las otras clases */}
+
           <Typography variant="h6" color="textPrimary" component="p">
             <b>Esperenado usuario</b>
           </Typography>
@@ -50,7 +53,11 @@ export default function Navbar() {
             <strong>Sing in</strong>
             </Button>
             <IconButton aria-label="Mira los articulos agregados a tu carrito" color="inherit">
+              {/* Revisar esta parte del codigo, genera una precaucion */}
+              <Badge badgeContent={100} overlap="rectangular" color="secondary">
               <ShoppingCart fontSize="large" color="primary"/>
+              </Badge>
+                
             </IconButton>
           </div>
 

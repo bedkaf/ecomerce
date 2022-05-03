@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
 
   action: {
     marginTop: "1rem",
+    fontSize: "1rem",
   },
 
   media: {
@@ -43,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function Product() {
+export default function Product({product : {id, name, productType, price, ranting, image, description}}) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -53,30 +54,33 @@ export default function Product() {
 
   return (
     <Card className={classes.root}>
-      <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            HBM
-          </Avatar>
-        }
-        action={
-          <Typography className={classes.action} variant='h5' color='textSecondary'>
-            {accounting.formatMoney(500,"COP ")}
-          </Typography>
-        }
-        title="Lapto ROG"
+      <CardHeader 
+        // avatar={
+        //   <Avatar aria-label="recipe" className={classes.avatar}>
+        //     HBM
+        //   </Avatar>
+        // }
+        
+        title={name.slice(0,19)}
         subheader="in Stock"
       />
+      
       <CardMedia
         className={classes.media}
-        image="https://www.bhphotovideo.com/cdn-cgi/image/format=auto,fit=scale-down,width=500,quality=95/https://www.bhphotovideo.com/images/images500x500/asus_g513qc_bb74_g15_ryzen_7_5800h_1623842445_1633645.jpg"
-        title="Laptop ASUS ROG"
+        image={image}
+        title={name}
       />
 
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          Laptop videogames
+        
+        <Typography  variant='h6' color='textSecondary'>
+          {accounting.formatMoney(price,"COP ")}
         </Typography>
+
+        <Typography variant="body2" color="textSecondary" component="p">
+          {productType}
+        </Typography>
+                
       </CardContent>
 
       <CardActions disableSpacing>
@@ -85,10 +89,8 @@ export default function Product() {
           <AddShoppingCart fontSize='large' />
         </IconButton>
 
-        {/* Revisar este fragmento de codigo, esta generando una alerta de precaucion */}
-
-        {Array(3).fill().map((_, i) => (
-          <p>&#11088;</p>
+        {Array(ranting).fill().map((_, i) => (
+          <p key={i} >&#11088;</p>
         ))}
 
         <IconButton
@@ -105,7 +107,7 @@ export default function Product() {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
 
         <CardContent>
-          <Typography paragraph>"Detalles"</Typography>
+          <Typography paragraph>{description}</Typography>
           
         </CardContent>
 
