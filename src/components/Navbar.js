@@ -7,7 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import logo from '../assets/removebg.png'
 import { ShoppingCart } from '@material-ui/icons';
 import { Badge } from '@material-ui/core';
-import { Button, TextField } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
@@ -41,7 +41,7 @@ export default function Navbar() {
 
           <Link to="/">
             <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-              <img src={logo} className={classes.image} />
+              <img src={logo} className={classes.image} alt="Logo de la pagina" />
             </IconButton>
           </Link>
 
